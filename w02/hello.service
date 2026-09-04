@@ -1,0 +1,10 @@
+[Unit]
+Description=FastAPI hello
+After=network.target
+[Service]
+User=ec2-user
+WorkingDirectory=/home/ec2-user/app
+ExecStart=/usr/bin/python3 -m uvicorn main:app --host 127.0.0.1 --port 8000
+Restart=always
+[Install]
+WantedBy=multi-user.target
